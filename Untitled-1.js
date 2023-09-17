@@ -1,3 +1,5 @@
+// Importo una mappa e creo un marker per scegliere lat lon
+
 function init() {
   let map = L.map("map").setView([45.4689, 10.535], 13);
   let lat = 0;
@@ -21,6 +23,7 @@ function init() {
   });
 }
 
+// ottengo i dati relativi alla posizione scelta su mappa
 function fetchApi() {
   let lat = document.getElementById("lat").innerHTML;
   let lon = document.getElementById("lon").innerHTML;
@@ -35,7 +38,7 @@ function fetchApi() {
     .then((resp) => resp.json())
     .then((data) => handleData(data));
 }
-
+//gestisco i dati
 function handleData(data) {
   const time = data.hourly.time;
   const temp = data.hourly.temperature_2m;
@@ -47,7 +50,7 @@ function handleData(data) {
   insertData(dayArr);
   buildChart(dayArr);
 }
-
+//riorganizzo i dati
 function sortDays(arr, temp, humid, wind) {
   const aLeng = arr.length;
   let day = arr[0].slice(0, 10);
@@ -88,7 +91,7 @@ function divideDays(sortedArr) {
 
   return dayArr;
 }
-
+// inserisco i dati nella tabella
 function insertData(dayArr) {
   const table = document.getElementById("statistics");
 
@@ -153,7 +156,7 @@ function insertData(dayArr) {
     table.appendChild(newLine);
   }
 }
-
+// creo i grafici
 function buildChart(dayArr) {
   const time = [];
   const temperature = [];
