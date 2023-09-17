@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esercizio 3DS</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="icon.png" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+  </head>
+  <body onload="init();">
+    <div id="map" style="height: 400px; width: 60%"></div>
+    <p>Latitudine: <span id="lat"></span></p>
+    <p>Longitudine: <span id="lon"></span></p>
+    <input type="submit" value="Cerca" onclick="fetchApi()" />
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="title" rowspan="2">Data</th>
+          <th class="title" colspan="3">Temperature</th>
+          <th class="title" colspan="3">Umidità</th>
+          <th class="title" colspan="3">WindSpeed</th>
+        </tr>
+        <tr>
+          <th class="col" id="minTemp">Min</th>
+          <th class="col" id="avgTemp">Avg</th>
+          <th class="col" id="maxTemp">Max</th>
+          <th class="col" id="minHum">Min</th>
+          <th class="col" id="avgHum">Avg</th>
+          <th class="col" id="maxHum">Max</th>
+          <th class="col" id="minWind">Min</th>
+          <th class="col" id="avgWind">Avg</th>
+          <th class="col" id="maxWind">Max</th>
+        </tr>
+      </thead>
+      <tbody id="statistics"></tbody>
+    </table>
+
+    <canvas id="temp"></canvas>
+    <canvas id="hum"></canvas>
+    <canvas id="wind"></canvas>
+    <canvas id="mix"></canvas>
+
+    <script src="Untitled-1.js"></script>
+  </body>
+</html>
